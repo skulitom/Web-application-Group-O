@@ -23,6 +23,10 @@ class CitationCreate(CreateView):
     model = Citation
     fields = ['title', 'link', 'notes']
     success_url = reverse_lazy('groupo:citation_list')
+    
+    def form_valid(self, form):
+        form.instance.owner = self.request.user
+        return super(CreateArticle, self).form_valid(form)
 
 class CitationUpdate(UpdateView):
     model = Citation

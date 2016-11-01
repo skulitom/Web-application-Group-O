@@ -2,7 +2,7 @@
 
    {% block content %}
       <div class="container">
-         {% if citations %}
+         {% if citation_list %}
             <h1>Your Citations</h1>
             <table class="table">
             <thead>
@@ -13,7 +13,7 @@
                </tr>
             </thead>
             <tbody>
-               {% for citation in citations %}
+               {% for citation in citation_list %}
                   <tr>
                      <td>{{ citation.title }} </td>
                      <td>{{ citation.notes }} </td>

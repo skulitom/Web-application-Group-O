@@ -30,6 +30,6 @@
          {% else %}
            <p>No citations found.</p>
          {% endif %}
-         <a href="{% url 'groupo:citation_add' citation.id %}">add</a>
+         <a href="{% url 'groupo:citation_new' citation.id %}">add</a>
       </div>
    {% endblock content %}

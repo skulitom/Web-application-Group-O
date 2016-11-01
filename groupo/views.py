@@ -1,14 +1,38 @@
 from django.http import HttpResponse
 
+from django.http import HttpResponse
+from django.views.generic import TemplateView,ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.core.urlresolvers import reverse_lazy
 
-def index(request):
-    current_user = request.user
-    if current_user.is_authenicated():
-        citation_list = Citation.objects.filter(owner=current_user)
-        template = loader.get_template('polls/index.html')
-        context = {
-            'citation_list': citation_list,
-        }
-        return HttpResponse(template.render(context, request))
-    else:
-        return HttpResponseRedirect("/login/")
+from groupo.models import Citation
+
+class CitationsList(ListView):
+    current_user = self.request.user
+    if current_user.is_authenticated():
+        queryset = Citation.objects.filter(owner=current_user)
+        context_object_name = 'citation_list'
+    model = Citation
+    
+    def dispatch(self, request, *args, **kwargs):
+        # check if there is some citations
+        if not self.request.user.is_authenticated():
+            return redirect('/login/')
+        else:
+            return super(CitationsList, self).dispatch(request, *args, **kwargs)
+
+class CitationCreate(CreateView):
+    model = Citation
+    fields = ['title', 'link', 'notes']
+    success_url = reverse_lazy('groupo:citation_list')
+
+class CitationUpdate(UpdateView):
+    model = Citation
+    fields = ['title', 'link', 'notes']
+    success_url = reverse_lazy('groupo:citation_list')
+
+class CitationDelete(DeleteView):
+    model = Citation
+    success_url = reverse_lazy('groupo:citation_list')
+
+

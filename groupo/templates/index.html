@@ -1,16 +1,29 @@
 {% extends "base.html" %}
 
    {% block content %}
-     <h1>Your Citations</h1>
-     {% if citations %}
-         <ul>
-          {% for citation in citations %}
-            <h3>{{ citation.title }} </h3>
-            <p>{{ citation.notes }} </p>
-            <a href="{{ citation.link }}/">{{ citation.link }}</a>
-          {% endfor %}
-         </ul>
-     {% else %}
-         <p>No citations found.</p>
-     {% endif %}
+      <div class="container">
+         {% if citations %}
+            <h1>Your Citations</h1>
+            <table class="table">
+            <thead>
+               <tr>
+                  <th>Title</th>
+                  <th>Link</th>
+                  <th>Notes</th>
+               </tr>
+            </thead>
+            <tbody>
+               {% for citation in citations %}
+                  <tr>
+                     <td>{{ citation.title }} </td>
+                     <td>{{ citation.notes }} </td>
+                     <td><a href="{{ citation.link }}/">{{ citation.link }}</a></td>
+                  </tr>
+               {% endfor %}
+            </tbody>
+           </table>
+         {% else %}
+           <p>No citations found.</p>
+         {% endif %}
+      </div>
    {% endblock content %}

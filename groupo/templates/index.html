@@ -10,14 +10,18 @@
                   <th>Title</th>
                   <th>Link</th>
                   <th>Notes</th>
+                  <th></th>
+                  <th></th>
                </tr>
             </thead>
             <tbody>
                {% for citation in citation_list %}
                   <tr>
                      <td>{{ citation.title }} </td>
-                     <td>{{ citation.notes }} </td>
                      <td><a href="{{ citation.link }}/">{{ citation.link }}</a></td>
+                     <td>{{ citation.notes }} </td>
+                     <td><a href="{% url 'groupo:citation_edit' citation.id %}">edit</a></td>
+                     <td><a href="{% url 'groupo:citation_delete' citation.id %}">delete</a></td>
                   </tr>
                {% endfor %}
             </tbody>
@@ -25,5 +29,6 @@
          {% else %}
            <p>No citations found.</p>
          {% endif %}
+         <a href="{% url 'groupo:citation_add' citation.id %}">add</a>
       </div>
    {% endblock content %}

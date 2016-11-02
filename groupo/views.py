@@ -6,10 +6,8 @@ from django.core.urlresolvers import reverse_lazy
 from groupo.models import Citation
 
 class CitationsList(ListView):
-    current_user = self.request.user
-    if current_user.is_authenticated():
-        queryset = Citation.objects.filter(owner=current_user)
-        context_object_name = 'citation_list'
+    queryset = Citation.objects.filter(owner=current_user)
+    context_object_name = 'citation_list'
     model = Citation
     
     def dispatch(self, request, *args, **kwargs):

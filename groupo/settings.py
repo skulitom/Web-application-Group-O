@@ -51,6 +51,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'groupo.urls'
+LOGIN_REDIRECT_URL = 'citation_list'
 
 TEMPLATES = [
     {

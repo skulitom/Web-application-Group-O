@@ -23,6 +23,10 @@ urlpatterns = patterns('',
   url(r'^new$', views.CitationCreate.as_view(), name='citation_new'),
   url(r'^edit/(?P<pk>\d+)$', views.CitationUpdate.as_view(), name='citation_edit'),
   url(r'^delete/(?P<pk>\d+)$', views.CitationDelete.as_view(), name='citation_delete'),
-  url(r'^login/$', auth_views.login, name='login'),
-  url(r'^logout/$', auth_views.logout, name='logout'),
+  url(r'^login/$',
+    'django.contrib.auth.views.login', {'template_name': 'login.html'}
+),
+  url(r'^logout/$',
+    'django.contrib.auth.views.logout', {'next_page': '/login/'}
+),
 )

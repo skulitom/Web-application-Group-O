@@ -21,7 +21,13 @@ class CitationCreate(CreateView):
     model = Citation
     fields = ['title', 'link', 'notes']
     success_url = '/citations/'
-    
+
+    def get(self,request):
+        if not self.request.user.is_authenticated():
+            return redirect('/login/')
+        return super(CitationCreate,self).get(self,request)
+
+
     def form_valid(self, form):
         form.instance.owner = self.request.user
         return super(CitationCreate, self).form_valid(form)
@@ -31,8 +37,19 @@ class CitationUpdate(UpdateView):
     fields = ['title', 'link', 'notes']
     success_url = '/citations/'
 
+    def get(self,request, pk):
+        if not self.request.user.is_authenticated():
+            return redirect('/login/')
+        return super(CitationUpdate,self).get(self,request, pk)
+
+
 class CitationDelete(DeleteView):
     model = Citation
     success_url = '/citations/'
+
+    def get(self, request, pk):
+        if not self.request.user.is_authenticated():
+            return redirect('/login/')
+        return super(CitationDelete,self).get(self,request, pk)
 
 

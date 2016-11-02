@@ -15,11 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from books_cbv import views
+from groupo import views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = patterns('',
   url(r'^$', views.CitationList.as_view(), name='citation_list'),
   url(r'^new$', views.CitationCreate.as_view(), name='citation_new'),
   url(r'^edit/(?P<pk>\d+)$', views.CitationUpdate.as_view(), name='citation_edit'),
   url(r'^delete/(?P<pk>\d+)$', views.CitationDelete.as_view(), name='citation_delete'),
+  url(r'^login/$', auth_views.login, name='login'),
+  url(r'^logout/$', auth_views.logout, name='logout'),
 )

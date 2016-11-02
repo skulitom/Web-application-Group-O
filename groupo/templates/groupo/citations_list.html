@@ -1,5 +1,5 @@
 
-{% extends "base.html" %}
+{% extends "groupo/base.html" %}
 
    {% block content %}
       <div class="container">
@@ -21,8 +21,8 @@
                      <td>{{ citation.title }} </td>
                      <td><a href="{{ citation.link }}/">{{ citation.link }}</a></td>
                      <td>{{ citation.notes }} </td>
-                     <td><a href="{% url 'groupo:citation_edit' citation.id %}">edit</a></td>
-                     <td><a href="{% url 'groupo:citation_delete' citation.id %}">delete</a></td>
+                     <td><a href="/edit/{{ citation.id }}">edit</a></td>
+                     <td><a href="/delete/{{ citation.id }}">delete</a></td>
                   </tr>
                {% endfor %}
             </tbody>
@@ -30,6 +30,6 @@
          {% else %}
            <p>No citations found.</p>
          {% endif %}
-         <a href="{% url 'groupo:citation_new' citation.id %}">add</a>
+         <a href="/new/">add</a>
       </div>
    {% endblock content %}

@@ -21,7 +21,7 @@ fabconf = {}
 fabconf['FAB_CONFIG_PATH'] = os.path.dirname(__file__)
 
 # Project name
-fabconf['PROJECT_NAME'] = "amazon_app"
+fabconf['PROJECT_NAME'] = "groupo"
 
 # Username for connecting to EC2 instaces - Do not edit unless you have a
 # reason to
@@ -31,7 +31,7 @@ fabconf['SERVER_USERNAME'] = "ubuntu"
 fabconf['SSH_PATH'] = "~/.ssh"
 
 # Name of the private key file you use to connect to EC2 instances
-fabconf['EC2_KEY_NAME'] = "my_ssh_key.pem"
+fabconf['EC2_KEY_NAME'] = "skulitom.pem"
 
 # Don't edit. Full path of the ssh key you use to connect to EC2 instances
 fabconf[
@@ -108,7 +108,7 @@ ec2_keypair = 'insert_keypair_name'
 ec2_secgroups = ['MySecurityGroup']
 
 # API Name of instance type. http://bit.ly/mkWvpn
-ec2_instancetype = 't1.micro'
+ec2_instancetype = 't2.micro'
 
 # Existing instances - add the public dns of your instances here when you have spawned them
 fabconf['EC2_INSTANCES'] = [""]

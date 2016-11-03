@@ -96,7 +96,7 @@ fabconf['AWS_ACCESS_KEY'] = 'AKIAIZ5A7GUKL7PIPRCQ'
 fabconf['AWS_SECRET_KEY'] = '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'
 
 # EC2 region. http://amzn.to/12jBkm7
-ec2_region = 'ap-southeast-2'
+ec2_region = 'eu-west-1'
 
 # AMI name. http://bit.ly/liLKxj
 ec2_amis = ['ami-51821b6b']

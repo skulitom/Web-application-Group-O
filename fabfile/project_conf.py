@@ -99,7 +99,8 @@ fabconf['AWS_SECRET_KEY'] = '2Y8FOBSghf/PAZ6GGsD7/TLEXhxtYThvUp57C4EG'
 ec2_region = 'eu-west-1'
 
 # AMI name. http://bit.ly/liLKxj
-ec2_amis = ['ami-51821b6b']
+#i-0f902f0dbcc97464f
+ec2_amis = ['ami-cccd98bf']
 
 # Name of the keypair you use in EC2. http://bit.ly/ldw0HZ
 ec2_keypair = 'skulitom'
@@ -111,4 +112,4 @@ ec2_secgroups = ['web-tier']
 ec2_instancetype = 't2.micro'
 
 # Existing instances - add the public dns of your instances here when you have spawned them
-fabconf['EC2_INSTANCES'] = ["ec2-52-213-61-39.eu-west-1.compute.amazonaws.com"]
+fabconf['EC2_INSTANCES'] = ["ec2-52-51-110-106.eu-west-1.compute.amazonaws.com"]

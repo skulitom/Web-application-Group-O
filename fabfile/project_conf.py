@@ -60,7 +60,7 @@ fabconf['ADMIN_EMAIL'] = "artemskulimovskiy@gmail.com"
 fabconf['GIT_USERNAME'] = "skulitom"
 
 # Name of the private key file used for git deployments
-fabconf['GIT_DEPLOY_KEY_NAME'] = "git_rsa"
+fabconf['GIT_DEPLOY_KEY_NAME'] = "id_rsa"
 
 # Don't edit. Local path for deployment key you use for git
 fabconf['GIT_DEPLOY_KEY_PATH'] = "%s/%s" % (
